@@ -1,0 +1,58 @@
+{% load thumbnail %}
+
+{% for otro in otros %}
+   <li class="gl-item gl-fixed-ratio-item gl-loading" data-category="{{ otro.sexo }}">
+      <a href="#"> 
+         <figure>
+            {% if otro.imagen|is_portrait %}
+               {% thumbnail otro.imagen "500x743" crop="center" as im %}
+                  <img src="{{ im.url }}" alt="otroes/Gios {{ otro.nombre}}">
+               {% endthumbnail %}
+            {% else %}
+               {% thumbnail otro.imagen "743x500" crop="center" as im %}
+                  <img src="{{ im.url }}" alt="otroes/Gios {{ otro.nombre}}">
+               {% endthumbnail %}
+            {% endif %}
+
+            <figcaption>
+               <div class="middle"><div class="middle-inner">
+                  <p class="gl-item-title">{{ otro.nombre }}</p>
+   
+               </div></div>
+            </figcaption>
+         </figure>
+      </a>
+       <div class="gl-preview" style="diplay:none;">
+         <span class="glp-arrow"></span>
+         <a href="#" class="glp-close"></a>
+         <div class="row gl-preview-container">
+            <div class="col-sm-8">
+               <figure>
+                  {% if otro.imagen|is_portrait %}
+                     {% thumbnail otro.imagen "500x743" crop="center" as im %}
+                        <img src="{{ im.url }}" alt="otroes/Gios {{ otro.nombre}}">
+                     {% endthumbnail %}
+                  {% else %}
+                     {% thumbnail otro.imagen "743x500" crop="center" as im %}
+                        <img src="{{ im.url }}" alt="otroes/Gios {{ otro.nombre}}">
+                     {% endthumbnail %}
+                  {% endif %}
+               </figure>
+            </div>
+            <div class="col-sm-4 lg-preview-descr">
+               <h4>{{ otro.nombre }}</h4>
+               {{ otro.descripcion|linebreaks }}
+               <!-- <div class="mb-social glp-social">
+                  <p>Share</p>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                  <a href="#"><i class="fa fa-pinterest"></i></a>
+                  <a href="#"><i class="fa fa-tumblr"></i></a>
+               </div> -->
+            </div>
+         </div>
+      </div> <!-- gl-preview -->
+   </li>
+{% endfor %}
