@@ -48,9 +48,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'administrador',
     'sorl.thumbnail',
     'south',
-    'administrador',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -83,7 +83,7 @@ DATABASES = {
     'default': {
         'NAME': 'blueberry',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
+        'USER': 'wadmin',
         'PASSWORD': 'cortana117.,'
     }
   }

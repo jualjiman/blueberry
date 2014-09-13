@@ -5,7 +5,7 @@ from sorl.thumbnail.shortcuts import get_thumbnail
 # Register your models here.
 
 class SliderAdmin(admin.ModelAdmin):
-	list_display = ('titulo','descripcion','activo','imagen_slider',)
+	list_display = ('imagen_slider','titulo','descripcion','activo',)
 	search_fields = ['titulo','descripcion',]
 
 	def imagen_slider(self,obj):
