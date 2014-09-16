@@ -4705,7 +4705,7 @@ blockquote footer { font-size: 12px; }
 .footer-loadmore-1 { font-size: 16px; text-transform: uppercase; }
 
 /* ======================== Mental LayerSlider Layers & Styles ======================== */
-.ls-mental-title { padding: 18px 28px; line-height: 37px; font-size: 31px; font-weight: bold; color: #F5F5F5; background: #ce006d; white-space: nowrap; }
+.ls-mental-title { opacity:0.8; padding: 18px 28px; line-height: 37px; font-size: 31px; font-weight: bold; color: #F5F5F5; background: #ce006d; white-space: nowrap; }
 @media (max-width: 767px) { .ls-mental-title { font-size: 18px; } }
 
 .ls-mental-title-onepage { padding: 18px 28px; line-height: 37px; font-size: 31px; font-weight: bold; color: #da6ca6; background: #1a1a1a; white-space: nowrap; }
