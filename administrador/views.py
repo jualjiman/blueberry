@@ -35,7 +35,7 @@ def eventos(request):
         testimoniales = Testimonial.objects.filter(activo = True)
         return render(
                 request,
-                "servicios.html",
+                "eventos.html",
                 {
                         "testimoniales":testimoniales,
                 }
