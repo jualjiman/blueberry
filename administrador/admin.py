@@ -14,11 +14,11 @@ class SliderAdmin(admin.ModelAdmin):
 	imagen_slider.allow_tags = True
 
 class EdecanAdmin(admin.ModelAdmin):
-	list_display = ('nombre','descripcion','activo','sexo','imagen_edecan',)
+	list_display = ('imagen_edecan','nombre','activo','prioridad','sexo',)
 	search_fields = ['nombre','descripcion',]
 
 	def imagen_edecan(self,obj):
-		return '<img src="%s" />' % get_thumbnail(obj.imagen,'60x100', crop='center').url #format='PNG', quality=99
+		return '<img src="%s" />' % get_thumbnail(obj.imagen,'100x100', crop='center').url #format='PNG', quality=99
 
 	imagen_edecan.allow_tags = True
 

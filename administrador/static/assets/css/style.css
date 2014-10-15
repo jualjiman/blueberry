@@ -4773,7 +4773,7 @@ div.ls-nonav a.ls-nav-next { display: none !important; }
 ul.gallety-filters { list-style-type: none; margin: 0; padding: 0; position: relative; }
 ul.gallety-filters:before, ul.gallety-filters:after { content: " "; display: table; }
 ul.gallety-filters:after { clear: both; }
-ul.gallety-filters > li { float: left; }
+ul.gallety-filters > li { float: left;}
 ul.gallety-filters > li > a { display: block; padding: 15px 40px 15px; color: #FFE8F4; text-transform: uppercase; }
 ul.gallety-filters > li.active > a, ul.gallety-filters > li a:hover { color: #FF94CD; text-decoration: none; }
 ul.gallety-filters > li.gf-underline { position: absolute; bottom: 0; left: 0; width: 103px; height: 3px; background-color: #da6ca6; transition: all 0.3s ease; }
@@ -4946,6 +4946,8 @@ ul{
 
 @media screen and (max-width: 767px){
    .parallax { height: 250px; background-size: 190%;} 
+   .logo { width: 100px}
+   ul.gallety-filters > li{width:33%}
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px){
@@ -4960,3 +4962,4 @@ ul{
    .parallax { height: 400px; background-size: 100%;} 
 }
 
+.logo{width:150px}

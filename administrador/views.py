@@ -1,6 +1,7 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from .models import *
+from random import sample
 
 #from .forms import *
 
@@ -9,7 +10,7 @@ from .models import *
 def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	testimoniales = Testimonial.objects.filter(activo = True)
-	edecanes = Edecan.objects.filter(activo = True)[:8]
+	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
 
 	return render(request,"index.html",{"sliders": sliders, "testimoniales":testimoniales,"edecanes":edecanes,})
 
@@ -30,15 +31,27 @@ def servicios(request):
 		}
 	)
 
+def eventos(request):
+        testimoniales = Testimonial.objects.filter(activo = True)
+        return render(
+                request,
+                "servicios.html",
+                {
+                        "testimoniales":testimoniales,
+                }
+        )
+
 def book(request):
 	testimoniales = Testimonial.objects.filter(activo = True)
-	edecanes = Edecan.objects.filter(activo = True).order_by("nombre")[:8]
+	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
 
 	return render(
 		request,
 		"book.html",
 		{
 			"testimoniales":testimoniales,
+
+
 			"edecanes":edecanes,
 		}
 	)
@@ -56,7 +69,7 @@ def mas(request):
 	    pagina = int(request.POST['num'])
 	    pagina *= 8
 
-	    otros = Edecan.objects.filter(activo = True).order_by("nombre")[pagina:(pagina+8)]
+	    otros = Edecan.objects.filter(activo = True).order_by("prioridad")[pagina:(pagina+8)]
 
 	    return render(request,"mas.html",{"otros": otros})
 	else:

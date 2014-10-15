@@ -32,18 +32,18 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-"""
+
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
 
-GRAPPELLI_ADMIN_TITLE = "Blueberry | Agencia de edecanes"
-"""
+#GRAPPELLI_ADMIN_TITLE = "Blueberry | Agencia de edecanes"
 
 INSTALLED_APPS = (
-    'bootstrap_admin',
+    'django_admin_bootstrapped.bootstrap3',
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
         'NAME': 'blueberry',
         'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
+        'USER': 'wadmin',
         'PASSWORD': 'cortana117.,'
     }
   }

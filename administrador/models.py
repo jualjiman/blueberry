@@ -27,6 +27,7 @@ class Edecan(models.Model):
 	descripcion = models.TextField(blank=True)
 	imagen = ImageField(upload_to = "edecanes")
 	sexo = models.CharField(max_length=1, choices=categorias)
+	prioridad = models.IntegerField(default=1)
 	activo = models.BooleanField(default=True)
 
 	def __str__(self):
