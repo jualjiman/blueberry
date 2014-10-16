@@ -10,7 +10,7 @@
    <meta charset="utf-8">
    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
 
-   <title>Servicios | Blueberry Agencia de edecanes</title>
+   <title>Eventos | Blueberry Agencia de edecanes</title>
    <meta name="description" content="">
    <meta name="keywords" content="">
 
@@ -68,7 +68,9 @@
       {% for evento in eventos %}
       <div class="col-sm-6 col-md-4 blog-item isotope-item">
          <div class="blog-image">
-            <img src="{{ evento.imagen }}" alt="">
+            {% thumbnail evento.imagen "600" crop="center" as im %}
+            <img src="{{ im.url }}" alt="{{ evento.lugar }}-{{ evento.servicio }}">
+            {% endthumbnail %}
          </div>
          <div class="blog-body">
             <h4 class="blog-title">{{ evento.lugar }}</h4>
