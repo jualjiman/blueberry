@@ -32,7 +32,7 @@ def servicios(request):
 	)
 
 def eventos(request):
-        eventos = Testimonial.objects.filter(activo = True)
+        eventos = Evento.objects.filter(activo = True)
         return render(
                 request,
                 "eventos.html",
