@@ -19,6 +19,16 @@ class Slider(models.Model):
 	def __str__(self):
 		return self.titulo
 
+class Evento(models.Model):
+	imagen = ImageField(upload_to = "eventos")
+	lugar = models.CharField(max_length=60)
+	servicio = models.CharField(max_length=100)
+	posicion = models.IntegerField(default = 1)
+	activo = models.BooleanField(default=True)
+
+	def __str__(self):
+		return self.lugar
+
 class Edecan(models.Model):
 	class Meta:
 		verbose_name_plural = "Edecanes"

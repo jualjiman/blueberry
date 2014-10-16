@@ -32,12 +32,12 @@ def servicios(request):
 	)
 
 def eventos(request):
-        testimoniales = Testimonial.objects.filter(activo = True)
+        eventos = Testimonial.objects.filter(activo = True)
         return render(
                 request,
                 "eventos.html",
                 {
-                        "testimoniales":testimoniales,
+                        "eventos":eventos,
                 }
         )
 

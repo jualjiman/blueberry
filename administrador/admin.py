@@ -13,6 +13,15 @@ class SliderAdmin(admin.ModelAdmin):
 
 	imagen_slider.allow_tags = True
 
+class EventoAdmin(admin.ModelAdmin):
+	list_display = ('imagen_evento','lugar','servicio','posicion','activo',)
+	search_fields = ['lugar','servicio',]
+
+	def imagen_evento(self,obj):
+		return '<img src="%s" />' % get_thumbnail(obj.imagen,'100x60', crop='center').url #format='PNG', quality=99
+
+	imagen_evento.allow_tags = True
+
 class EdecanAdmin(admin.ModelAdmin):
 	list_display = ('imagen_edecan','nombre','activo','prioridad','sexo',)
 	search_fields = ['nombre','descripcion',]
@@ -27,5 +36,6 @@ class TestimonialAdmin(admin.ModelAdmin):
 	search_fields = ['cita','autor','puesto']
 
 admin.site.register(Slider,SliderAdmin)
+admin.site.register(Evento,EventoAdmin)
 admin.site.register(Edecan,EdecanAdmin)
 admin.site.register(Testimonial,TestimonialAdmin)
