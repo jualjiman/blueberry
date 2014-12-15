@@ -11,56 +11,67 @@ def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	testimoniales = Testimonial.objects.filter(activo = True)
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
+	titulo = "Home"
 
-	return render(request,"index.html",{"sliders": sliders, "testimoniales":testimoniales,"edecanes":edecanes,})
+	return render(request,"index.html",{"sliders": sliders, "testimoniales":testimoniales,"edecanes":edecanes,"titulo":titulo,})
 
 def nosotros(request):
+	titulo = "Nosotros"
 	return render(
 		request,
 		"nosotros.html",
-		{}
+		{
+			"titulo":titulo,
+		}
 	)
 
 def servicios(request):
 	testimoniales = Testimonial.objects.filter(activo = True)
+	titulo = "Servicios"
 	return render(
 		request,
 		"servicios.html",
 		{
 			"testimoniales":testimoniales,
+			"titulo":titulo,
 		}
 	)
 
 def eventos(request):
         eventos = Evento.objects.filter(activo = True)
+        titulo = "Eventos"
         return render(
                 request,
                 "eventos.html",
                 {
                         "eventos":eventos,
+                        "titulo":titulo,
                 }
         )
 
 def book(request):
 	testimoniales = Testimonial.objects.filter(activo = True)
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
+	titulo = "Book"
 
 	return render(
 		request,
 		"book.html",
 		{
 			"testimoniales":testimoniales,
-
-
+			"titulo":titulo,
 			"edecanes":edecanes,
 		}
 	)
 
 def contacto(request):
+	titulo = "Contacto"
 	return render(
 		request,
 		"contacto.html",
-		{}
+		{
+			"titulo":titulo,
+		}
 	)
 
 @csrf_exempt
