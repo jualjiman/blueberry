@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'blueberry',
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'wadmin',
-        'PASSWORD': 'cortana117.,'
+        'PASSWORD': '081510979s'
     }
   }
 
