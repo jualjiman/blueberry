@@ -6,7 +6,7 @@
             $.validationEngineLanguage.allRules = {
                 "required": { // Add your regex rules here, you can take telephone as an example
                     "regex": "none",
-                    "alertText": "* Este es un campo obligatorio",
+                    "alertText": "* Campo obligatorio",
                     "alertTextCheckboxMultiple": "* Por favor seleccione una opción",
                     "alertTextCheckboxe": "* Este checkbox es obligatorio",
                     "alertTextDateRange": "* Ambos campos de fecha son obligatorios"
@@ -85,7 +85,7 @@
                 "email": {
                     // HTML5 compatible email regex ( http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#    e-mail-state-%28type=email%29 )
                     "regex": /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    "alertText": "* Invalid email address"
+                    "alertText": "* Email invalido"
                 },
                 "fullname": {
                     "regex":/^([a-zA-Z]+[\'\,\.\-]?[a-zA-Z ]*)+[ ]([a-zA-Z]+[\'\,\.\-]?[a-zA-Z ]+)+$/,
