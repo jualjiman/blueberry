@@ -8,7 +8,7 @@ from random import sample
 # Create your views here.
 
 def home(request):
-	keywords = "edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentacion"
+	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Ofrecemos un servicio 100% profesional, nuestras edecanes tienen una excelente presentación, así como actitud de servicio para representar a su empresa en forma por demás profesional."
 	sliders = Slider.objects.filter(activo = True)
 	testimoniales = Testimonial.objects.filter(activo = True)
@@ -29,7 +29,7 @@ def home(request):
 	)
 
 def nosotros(request):
-	keywords = "edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentacion"
+	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Blueberry es una Agencia de Edecanes que tiene como objetivo principal contribuir a mejorar la imagen de marca y calidad de negocio de nuestros clientes."
 	titulo = "Nosotros"
 	return render(
@@ -43,7 +43,7 @@ def nosotros(request):
 	)
 
 def servicios(request):
-	keywords = "edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentacion"
+	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Contrata a nuestros profesionales para: pasarelas, desfiles de moda, campañas, exposiciones, lanzamiento y reposicionamiento de productos, promociones, convenciones, etc."
 	testimoniales = Testimonial.objects.filter(activo = True)
 	titulo = "Servicios"
@@ -59,7 +59,7 @@ def servicios(request):
 	)
 
 def eventos(request):
-	keywords = "edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentacion"
+	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Congresos, Convenciones, Exposiciones, Ferias, Muestreo, Encuestas, Pasarelas, Campañas de lanzamiento, Siembra de Productos, Posicionamiento de marca, Campañas BTL"
         eventos = Evento.objects.filter(activo = True)
         titulo = "Eventos"
@@ -75,7 +75,7 @@ def eventos(request):
         )
 
 def book(request):
-	keywords = "edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentacion"
+	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Ofrecemos un servicio 100% profesional, nuestras edecanes tienen una excelente presentación, así como actitud de servicio para representar a su empresa en forma por demás profesional."
 	testimoniales = Testimonial.objects.filter(activo = True)
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
@@ -94,7 +94,7 @@ def book(request):
 	)
 
 def contacto(request):
-	keywords = "edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentacion"
+	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Nos encargarnos de la organización total de tu evento así como también de todos los servicios y equipamientos que necesites."
 	titulo = "Contacto"
 	return render(
