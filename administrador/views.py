@@ -3,7 +3,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from .models import *
 from random import sample
-from datetime import date, datetime
 
 #from .forms import *
 
