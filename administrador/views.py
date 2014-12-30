@@ -5,7 +5,7 @@ from .models import *
 from random import sample
 from .forms import *
 from django.views.decorators.csrf import csrf_exempt
-import requests
+# import requests
 
 #from .forms import *
 
