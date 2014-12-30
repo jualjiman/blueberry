@@ -144,7 +144,7 @@ def eventos(request):
 	eventos = Evento.objects.filter(activo = True)
 	titulo = "Eventos"
 
-    if request.is_ajax():
+	if request.is_ajax():
 		nombre = request.POST['name']
 		email = request.POST['email']
 		mensaje = request.POST['message']
