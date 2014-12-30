@@ -98,15 +98,40 @@ def contacto(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Nos encargarnos de la organización total de tu evento así como también de todos los servicios y equipamientos que necesites."
 	titulo = "Contacto"
-	return render(
-		request,
-		"contacto.html",
-		{
-			"titulo":titulo,
-			"keywords":keywords,
-			"description":description,
-		}
-	)
+
+	if request.is_ajax():
+	    nombre = request.POST['name']
+	    email = request.POST['email']
+	    mensaje = request.POST['message']
+	    asunto = request.POST['subject']
+
+	    dfrom = nombre + " <" +  email + ">"
+	    
+	    requests.post(
+        "https://api.mailgun.net/v2/jualjiman.com/messages",
+        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
+
+        data={"from": nombre + " <" + email + ">",
+              "to": ["contacto@jualjiman.com",],
+              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
+              "text": mensaje})
+
+	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
+	    msj.save()
+
+	    return HttpResponse('Ok')
+	else:
+		form = ContactForm()
+		return render(
+			request,
+			"contacto.html",
+			{
+				"titulo":titulo,
+				"keywords":keywords,
+				"description":description,
+				"form" : form
+			}
+		)
 
 @csrf_exempt
 def mas(request):
