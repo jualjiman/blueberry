@@ -141,43 +141,43 @@ def servicios(request):
 def eventos(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Congresos, Convenciones, Exposiciones, Ferias, Muestreo, Encuestas, Pasarelas, Campañas de lanzamiento, Siembra de Productos, Posicionamiento de marca, Campañas BTL"
-        eventos = Evento.objects.filter(activo = True)
-        titulo = "Eventos"
+	eventos = Evento.objects.filter(activo = True)
+	titulo = "Eventos"
 
-        if request.is_ajax():
-		    nombre = request.POST['name']
-		    email = request.POST['email']
-		    mensaje = request.POST['message']
-		    asunto = request.POST['subject']
+    if request.is_ajax():
+		nombre = request.POST['name']
+		email = request.POST['email']
+		mensaje = request.POST['message']
+		asunto = request.POST['subject']
 
-		    dfrom = nombre + " <" +  email + ">"
-		    
-		    requests.post(
-	        "https://api.mailgun.net/v2/jualjiman.com/messages",
-	        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
+		dfrom = nombre + " <" +  email + ">"
 
-	        data={"from": nombre + " <" + email + ">",
-	              "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
-	              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
-	              "text": mensaje})
+		requests.post(
+		"https://api.mailgun.net/v2/jualjiman.com/messages",
+		auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
 
-		    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
-		    msj.save()
+		data={"from": nombre + " <" + email + ">",
+		      "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
+		      "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
+		      "text": mensaje})
 
-		    return HttpResponse('Ok')
-	    else:
-			form = ContactForm()
-	        return render(
-	                request,
-	                "eventos.html",
-	                {
-	                    "eventos":eventos,
-	                    "titulo":titulo,
-	                    "keywords":keywords,
-						"description":description,
-						"form" : form
-	                }
-	        )
+		msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
+		msj.save()
+
+		return HttpResponse('Ok')
+	else:
+		form = ContactForm()
+		return render(
+		        request,
+		        "eventos.html",
+		        {
+		            "eventos":eventos,
+		            "titulo":titulo,
+		            "keywords":keywords,
+					"description":description,
+					"form" : form
+		        }
+		)
 
 def book(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
@@ -187,26 +187,26 @@ def book(request):
 	titulo = "Book"
 
 	if request.is_ajax():
-	    nombre = request.POST['name']
-	    email = request.POST['email']
-	    mensaje = request.POST['message']
-	    asunto = request.POST['subject']
+		nombre = request.POST['name']
+		email = request.POST['email']
+		mensaje = request.POST['message']
+		asunto = request.POST['subject']
 
-	    dfrom = nombre + " <" +  email + ">"
-	    
-	    requests.post(
-        "https://api.mailgun.net/v2/jualjiman.com/messages",
-        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
+		dfrom = nombre + " <" +  email + ">"
 
-        data={"from": nombre + " <" + email + ">",
-              "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
-              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
-              "text": mensaje})
+		requests.post(
+		"https://api.mailgun.net/v2/jualjiman.com/messages",
+		auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
 
-	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
-	    msj.save()
+		data={"from": nombre + " <" + email + ">",
+		      "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
+		      "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
+		      "text": mensaje})
 
-	    return HttpResponse('Ok')
+		msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
+		msj.save()
+
+		return HttpResponse('Ok')
 	else:
 		form = ContactForm()
 		return render(
