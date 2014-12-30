@@ -23,9 +23,9 @@ sys.setdefaultencoding('utf-8')
 SECRET_KEY = 'yn=oy%(3+5@v*3i%*is8995$t1nobfcc#&erx@d3+=g1!uc_nv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
-TEMPLATE_DEBUG = False
+debugsm = True
+DEBUG = debugsm
+TEMPLATE_DEBUG = debugsm
 
 ALLOWED_HOSTS = ['.edecanesenacapulco.com.mx','.edecanesenacapulco.com.mx.']
 #ALLOWED_HOSTS = ['.bb.jualjiman.com','.bb.jualjiman.com.']

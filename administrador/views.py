@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 from django.views.decorators.csrf import csrf_exempt
+from django.template import RequestContext
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from .models import *
 from random import sample
 from .forms import *
 from django.views.decorators.csrf import csrf_exempt
-# import requests
+import requests
 
 #from .forms import *
 
@@ -115,7 +117,7 @@ def contacto(request):
         auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
 
         data={"from": nombre + " <" + email + ">",
-              "to": ["contacto@jualjiman.com",],
+              "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
               "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
               "text": mensaje})
 
