@@ -3,6 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from .models import *
 from random import sample
+from .forms import *
+from django.views.decorators.csrf import csrf_exempt
 
 #from .forms import *
 
