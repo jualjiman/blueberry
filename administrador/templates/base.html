@@ -68,26 +68,21 @@
                               {% csrf_token %}
                               <div class="form-group">
                                  <label class="sr-only" for="input_name">Nombre *</label>
-                                 <!-- <input type="text" name="name" class="form-control validate[required]" id="input_name_widget" placeholder="Nombre *"> -->
-                                 {{ form.name.errors }}
                                  {{ form.name }}
                               </div>
                               
                               <div class="form-group">
                                  <label class="sr-only" for="input_email">Email *</label>
-                                 <!-- <input type="email" name="email" class="form-control validate[required,custom[email]]" id="input_email_widget" placeholder="Email *"> -->
                                  {{ form.email.errors }}
                                  {{ form.email }}
                               </div>
                               <div class="form-group">
                                  <label class="sr-only" for="input_name">Asunto</label>
-                                 <!-- <input type="text" name="name" class="form-control validate[required]" id="input_name_widget" placeholder="Nombre *"> -->
                                  {{ form.subject.errors }}
                                  {{ form.subject }}
                               </div>
                               <div class="form-group">
                                  <label class="sr-only" for="input_message">Mensaje</label>
-                                 <!-- <textarea name="message" class="form-control validate[required]" rows="4" id="input_message_widget" placeholder="Mensaje"></textarea> -->
                                  {{ form.message.errors }}
                                  {{ form.message }}
                               </div>
