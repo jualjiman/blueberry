@@ -21,163 +21,64 @@ def home(request):
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
 	titulo = "Home"
 
-	if request.is_ajax():
-	    nombre = request.POST['name']
-	    email = request.POST['email']
-	    mensaje = request.POST['message']
-	    asunto = request.POST['subject']
-
-	    dfrom = nombre + " <" +  email + ">"
-	    
-	    requests.post(
-        "https://api.mailgun.net/v2/jualjiman.com/messages",
-        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
-
-        data={"from": nombre + " <" + email + ">",
-              "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
-              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
-              "text": mensaje})
-
-	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
-	    msj.save()
-
-	    return HttpResponse('Ok')
-	else:
-		form = ContactForm()
-		return render(
-			request,
-			"index.html",
-			{
-				"sliders": sliders, 
-				"testimoniales":testimoniales,
-				"edecanes":edecanes,
-				"titulo":titulo,
-				"keywords":keywords,
-				"description":description,
-				"form" : form
-			}
-		)
+	return render(
+		request,
+		"index.html",
+		{
+			"sliders": sliders, 
+			"testimoniales":testimoniales,
+			"edecanes":edecanes,
+			"titulo":titulo,
+			"keywords":keywords,
+			"description":description,
+		}
+	)
 
 def nosotros(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Blueberry es una Agencia de Edecanes que tiene como objetivo principal contribuir a mejorar la imagen de marca y calidad de negocio de nuestros clientes."
 	titulo = "Nosotros"
-
-	if request.is_ajax():
-	    nombre = request.POST['name']
-	    email = request.POST['email']
-	    mensaje = request.POST['message']
-	    asunto = request.POST['subject']
-
-	    dfrom = nombre + " <" +  email + ">"
-	    
-	    requests.post(
-        "https://api.mailgun.net/v2/jualjiman.com/messages",
-        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
-
-        data={"from": nombre + " <" + email + ">",
-              "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
-              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
-              "text": mensaje})
-
-	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
-	    msj.save()
-
-	    return HttpResponse('Ok')
-	else:
-		form = ContactForm()
-		return render(
-			request,
-			"nosotros.html",
-			{
-				"titulo":titulo,
-				"keywords":keywords,
-				"description":description,
-				"form" : form
-			}
-		)
+	return render(
+		request,
+		"nosotros.html",
+		{
+			"titulo":titulo,
+			"keywords":keywords,
+			"description":description,
+		}
+	)
 
 def servicios(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Contrata a nuestros profesionales para: pasarelas, desfiles de moda, campañas, exposiciones, lanzamiento y reposicionamiento de productos, promociones, convenciones, etc."
 	testimoniales = Testimonial.objects.filter(activo = True)
 	titulo = "Servicios"
-
-	if request.is_ajax():
-	    nombre = request.POST['name']
-	    email = request.POST['email']
-	    mensaje = request.POST['message']
-	    asunto = request.POST['subject']
-
-	    dfrom = nombre + " <" +  email + ">"
-	    
-	    requests.post(
-        "https://api.mailgun.net/v2/jualjiman.com/messages",
-        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
-
-        data={"from": nombre + " <" + email + ">",
-              "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
-              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
-              "text": mensaje})
-
-	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
-	    msj.save()
-
-	    return HttpResponse('Ok')
-	else:
-		form = ContactForm()
-		return render(
-			request,
-			"servicios.html",
-			{
-				"testimoniales":testimoniales,
-				"titulo":titulo,
-				"keywords":keywords,
-				"description":description,
-				"form" : form
-			}
-		)
+	return render(
+		request,
+		"servicios.html",
+		{
+			"testimoniales":testimoniales,
+			"titulo":titulo,
+			"keywords":keywords,
+			"description":description,
+		}
+	)
 
 def eventos(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Congresos, Convenciones, Exposiciones, Ferias, Muestreo, Encuestas, Pasarelas, Campañas de lanzamiento, Siembra de Productos, Posicionamiento de marca, Campañas BTL"
-	eventos = Evento.objects.filter(activo = True)
-	titulo = "Eventos"
-
-	if request.is_ajax():
-		nombre = request.POST['name']
-		email = request.POST['email']
-		mensaje = request.POST['message']
-		asunto = request.POST['subject']
-
-		dfrom = nombre + " <" +  email + ">"
-
-		requests.post(
-		"https://api.mailgun.net/v2/jualjiman.com/messages",
-		auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
-
-		data={"from": nombre + " <" + email + ">",
-		      "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
-		      "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
-		      "text": mensaje})
-
-		msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
-		msj.save()
-
-		return HttpResponse('Ok')
-	else:
-		form = ContactForm()
-		return render(
-		        request,
-		        "eventos.html",
-		        {
-		            "eventos":eventos,
-		            "titulo":titulo,
-		            "keywords":keywords,
+        eventos = Evento.objects.filter(activo = True)
+        titulo = "Eventos"
+        return render(
+                request,
+                "eventos.html",
+                {
+                    "eventos":eventos,
+                    "titulo":titulo,
+                    "keywords":keywords,
 					"description":description,
-					"form" : form
-		        }
-		)
+                }
+        )
 
 def book(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
@@ -186,85 +87,34 @@ def book(request):
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
 	titulo = "Book"
 
-	if request.is_ajax():
-		nombre = request.POST['name']
-		email = request.POST['email']
-		mensaje = request.POST['message']
-		asunto = request.POST['subject']
+	return render(
+		request,
+		"book.html",
+		{
+			"testimoniales":testimoniales,
+			"titulo":titulo,
+			"edecanes":edecanes,
+			"keywords":keywords,
+			"description":description,
+		}
+	)
 
-		dfrom = nombre + " <" +  email + ">"
-
-		requests.post(
-		"https://api.mailgun.net/v2/jualjiman.com/messages",
-		auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
-
-		data={"from": nombre + " <" + email + ">",
-		      "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
-		      "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
-		      "text": mensaje})
-
-		msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
-		msj.save()
-
-		return HttpResponse('Ok')
-	else:
-		form = ContactForm()
-		return render(
-			request,
-			"book.html",
-			{
-				"testimoniales":testimoniales,
-				"titulo":titulo,
-				"edecanes":edecanes,
-				"keywords":keywords,
-				"description":description,
-				"form" : form
-			}
-		)
-
-"""
-siempre estar pendiente de colocar el form como las variables que le pasas al template 
-tambien de colocar la linea de encoding para utf8 en cada lugar donde vayas a usar acentos o caracteres epeciales
-importar el form 
-"""
 def contacto(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Nos encargarnos de la organización total de tu evento así como también de todos los servicios y equipamientos que necesites."
 	titulo = "Contacto"
 
-	if request.is_ajax():
-	    nombre = request.POST['name']
-	    email = request.POST['email']
-	    mensaje = request.POST['message']
-	    asunto = request.POST['subject']
-
-	    dfrom = nombre + " <" +  email + ">"
-	    
-	    requests.post(
-        "https://api.mailgun.net/v2/jualjiman.com/messages",
-        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
-
-        data={"from": nombre + " <" + email + ">",
-              "to": ["jualjiman@gmail.com","blow.it.away@live.com.mx"],
-              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
-              "text": mensaje})
-
-	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
-	    msj.save()
-
-	    return HttpResponse('Ok')
-	else:
-		form = ContactForm()
-		return render(
-			request,
-			"contacto.html",
-			{
-				"titulo":titulo,
-				"keywords":keywords,
-				"description":description,
-				"form" : form
-			}
-		)
+	form = ContactForm()
+	return render(
+		request,
+		"contacto.html",
+		{
+			"titulo":titulo,
+			"keywords":keywords,
+			"description":description,
+			"form" : form
+		}
+	)
 
 @csrf_exempt
 def mas(request):
@@ -277,6 +127,37 @@ def mas(request):
 	    return render(request,"mas.html",{"otros": otros})
 	else:
 		return HttpResponseRedirect("/")
+
+
+"""
+siempre estar pendiente de colocar el form como las variables que le pasas al template 
+tambien de colocar la linea de encoding para utf8 en cada lugar donde vayas a usar acentos o caracteres epeciales
+importar el form 
+"""
+def contactame(request):
+	if request.is_ajax():
+	    nombre = request.POST['name']
+	    email = request.POST['email']
+	    mensaje = request.POST['message']
+	    asunto = request.POST['subject']
+
+	    dfrom = nombre + " <" +  email + ">"
+	    
+	    requests.post(
+        "https://api.mailgun.net/v2/jualjiman.com/messages",
+        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
+
+        data={"from": nombre + " <" + email + ">",
+              "to": ["contacto@jualjiman.com",],
+              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
+              "text": mensaje})
+
+	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
+	    msj.save()
+
+	    return HttpResponse('Ok')
+	else:
+		home(request)
 
 
 # Handler for HTTP POST to http://myhost.com/messages for the route defined above
