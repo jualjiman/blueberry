@@ -53,3 +53,24 @@ class Testimonial(models.Model):
 	
 	def __str__(self):
 		return self.cita
+
+class Mensaje(models.Model):
+	nombre = models.CharField(max_length=100)
+	subject = models.TextField()
+	email = models.EmailField()
+	mensaje = models.TextField()
+	fecha = models.DateTimeField(default=datetime.now(),editable=False)
+
+	def __str__(self):
+		return self.nombre
+
+class Email(models.Model):
+	sender = models.CharField(max_length=150)
+	recipient = models.CharField(max_length=150)
+	subject = models.CharField(max_length=200)
+	body = models.TextField()
+	nattachments = models.IntegerField(default=0)
+	fecha = models.DateTimeField(default=datetime.now(),editable=False)
+
+	def __str__(self):
+		return self.sender

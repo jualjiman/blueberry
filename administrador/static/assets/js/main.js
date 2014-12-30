@@ -954,11 +954,11 @@ function init_ajax_forms()
 
       $.ajax({
          type: "POST",
-         url: 'formmail.php',
+         url: '/contactame/',
          data: $this.serialize(), // serializes the form's elements.
          success: function(data){
             $this.find('input[type=text], input[type=email], textarea').val(''); // Clear form
-            $this.prepend('<div class="alert alert-success">Your message was sent!</div>'); // Show success message
+            $this.prepend('<div class="alert alert-success">Gracias por contactarnos! en breve le estaremos atendiendo.</div>'); // Show success message
          },
          complete: function(jqXHR, textStatus){
             $spinner.hide();
