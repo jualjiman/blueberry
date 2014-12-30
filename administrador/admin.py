@@ -35,6 +35,14 @@ class TestimonialAdmin(admin.ModelAdmin):
 	list_display = ('cita','autor','puesto','activo',)
 	search_fields = ['cita','autor','puesto']
 
+class MensAdmin(admin.ModelAdmin):
+	list_display = ('nombre','email','mensaje','fecha')
+
+class Messages(admin.ModelAdmin):
+	list_display = ('sender','recipient','subject','nattachments','fecha')
+
+admin.site.register(Mensaje,MensAdmin)
+admin.site.register(Email,Messages)
 admin.site.register(Slider,SliderAdmin)
 admin.site.register(Evento,EventoAdmin)
 admin.site.register(Edecan,EdecanAdmin)
