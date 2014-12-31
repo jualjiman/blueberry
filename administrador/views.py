@@ -161,7 +161,7 @@ def contactame(request):
         auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
 
         data={"from": nombre + " <" + email + ">",
-              "to": ["contacto@jualjiman.com",],
+              "to": ["blueberry@jualjiman.com",],
               "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
               "text": mensaje})
 
