@@ -95,7 +95,7 @@ def book(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Ofrecemos un servicio 100% profesional, nuestras edecanes tienen una excelente presentación, así como actitud de servicio para representar a su empresa en forma por demás profesional."
 	testimoniales = Testimonial.objects.filter(activo = True)
-	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
+	edecanes = Edecan.objects.filter(activo = True).order_by("posicion")[:8]
 	titulo = "Book"
 
 	form = ContactForm()
