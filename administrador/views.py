@@ -75,7 +75,7 @@ def servicios(request):
 def eventos(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Congresos, Convenciones, Exposiciones, Ferias, Muestreo, Encuestas, Pasarelas, Campañas de lanzamiento, Siembra de Productos, Posicionamiento de marca, Campañas BTL"
-	eventos = Evento.objects.filter(activo = True)
+	eventos = Evento.objects.filter(activo = True).order_by("-posicion")
 	titulo = "Eventos"
 
 	form = ContactForm()
