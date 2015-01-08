@@ -19,7 +19,6 @@ def home(request):
 	sliders = Slider.objects.filter(activo = True)
 	testimoniales = Testimonial.objects.filter(activo = True)
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
-	titulo = "Home"
 
 	form = ContactForm()
 	return render(
@@ -29,7 +28,6 @@ def home(request):
 			"sliders": sliders, 
 			"testimoniales":testimoniales,
 			"edecanes":edecanes,
-			"titulo":titulo,
 			"keywords":keywords,
 			"description":description,
 			"form" : form
@@ -39,14 +37,12 @@ def home(request):
 def nosotros(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Blueberry es una Agencia de Edecanes que tiene como objetivo principal contribuir a mejorar la imagen de marca y calidad de negocio de nuestros clientes."
-	titulo = "Nosotros"
 
 	form = ContactForm()
 	return render(
 		request,
 		"nosotros.html",
 		{
-			"titulo":titulo,
 			"keywords":keywords,
 			"description":description,
 			"form" : form
@@ -57,7 +53,6 @@ def servicios(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Contrata a nuestros profesionales para: pasarelas, desfiles de moda, campañas, exposiciones, lanzamiento y reposicionamiento de productos, promociones, convenciones, etc."
 	testimoniales = Testimonial.objects.filter(activo = True)
-	titulo = "Servicios"
 
 	form = ContactForm()
 	return render(
@@ -65,7 +60,6 @@ def servicios(request):
 		"servicios.html",
 		{
 			"testimoniales":testimoniales,
-			"titulo":titulo,
 			"keywords":keywords,
 			"description":description,
 			"form" : form
@@ -76,7 +70,6 @@ def eventos(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Congresos, Convenciones, Exposiciones, Ferias, Muestreo, Encuestas, Pasarelas, Campañas de lanzamiento, Siembra de Productos, Posicionamiento de marca, Campañas BTL"
 	eventos = Evento.objects.filter(activo = True).order_by("-posicion")
-	titulo = "Eventos"
 
 	form = ContactForm()
 	return render(
@@ -84,7 +77,6 @@ def eventos(request):
             "eventos.html",
             {
                 "eventos":eventos,
-                "titulo":titulo,
                 "keywords":keywords,
 				"description":description,
 				"form" : form
@@ -96,7 +88,6 @@ def book(request):
 	description = "Ofrecemos un servicio 100% profesional, nuestras edecanes tienen una excelente presentación, así como actitud de servicio para representar a su empresa en forma por demás profesional."
 	testimoniales = Testimonial.objects.filter(activo = True)
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
-	titulo = "Book"
 
 	form = ContactForm()
 	return render(
@@ -104,7 +95,6 @@ def book(request):
 		"book.html",
 		{
 			"testimoniales":testimoniales,
-			"titulo":titulo,
 			"edecanes":edecanes,
 			"keywords":keywords,
 			"description":description,
@@ -115,14 +105,12 @@ def book(request):
 def contacto(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
 	description = "Nos encargarnos de la organización total de tu evento así como también de todos los servicios y equipamientos que necesites."
-	titulo = "Contacto"
 
 	form = ContactForm()
 	return render(
 		request,
 		"contacto.html",
 		{
-			"titulo":titulo,
 			"keywords":keywords,
 			"description":description,
 			"form" : form
