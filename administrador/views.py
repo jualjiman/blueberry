@@ -15,7 +15,7 @@ import requests
 
 def home(request):
 	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
-	description = "Ofrecemos un servicio 100% profesional, nuestras edecanes tienen una excelente presentación, así como actitud de servicio para representar a su empresa en forma por demás profesional."
+	description = "Nuestras edecanes tienen una excelente presentación, así como actitud de servicio para representar a su empresa en forma por demás profesional. Tel. 01 (744) 254 3628"
 	sliders = Slider.objects.filter(activo = True)
 	testimoniales = Testimonial.objects.filter(activo = True)
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
