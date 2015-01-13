@@ -144,8 +144,8 @@ def contactame(request):
 	    asunto = request.POST['subject']
 
 	    dfrom = nombre + " <" +  email + ">"
-		
-		send_mail('Mensaje desde Edecanes en Acapulco: ' + asunto, mensaje, email,['contacto@edecanesenacapulco.com.mx'],fail_silently=False)
+
+	    send_mail('Mensaje desde Edecanes en Acapulco: ' + asunto, mensaje, email,['contacto@edecanesenacapulco.com.mx'],fail_silently=False)
 	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
 	    msj.save()
 
