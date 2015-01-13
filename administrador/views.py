@@ -7,6 +7,7 @@ from .models import *
 from random import sample
 from .forms import *
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
 import requests
 
 #from .forms import *
@@ -143,7 +144,8 @@ def contactame(request):
 	    asunto = request.POST['subject']
 
 	    dfrom = nombre + " <" +  email + ">"
-	"""    
+		
+		"""    
 	    requests.post(
         "https://api.mailgun.net/v2/jualjiman.com/messages",
         auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
@@ -152,10 +154,11 @@ def contactame(request):
               "to": ["blueberry@jualjiman.com",],
               "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
               "text": mensaje})
-	"""
+		"""
+		
+		send_mail('Mensaje desde Edecanes en Acapulco: ' + asunto, mensaje, email,['contacto@edecanesenacapulco.com.mx'],fail_silently=False)
 	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
 	    msj.save()
-            #send_mail('Mensaje desde Edecanes en Acapulco: ' + asunto, mensaje, email,['contacto@edecanesenacapulco.com.mx'],fail_silently=False)
 
 	    return HttpResponse('Ok')
 	else:
