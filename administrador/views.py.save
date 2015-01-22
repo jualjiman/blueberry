@@ -7,7 +7,6 @@ from .models import *
 from random import sample
 from .forms import *
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
 import requests
 
 #from .forms import *
@@ -36,8 +35,8 @@ def home(request):
 	)
 
 def nosotros(request):
-	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"	
-        description = "Blueberry es una Agencia de Edecanes que tiene como objetivo principal contribuir a mejorar la imagen de marca y calidad de negocio de nuestros clientes."
+	keywords = u"edecanes, acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, evento, profesional, presentación"
+	description = "Blueberry es una Agencia de Edecanes que tiene como objetivo principal contribuir a mejorar la imagen de marca y calidad de negocio de nuestros clientes."
 
 	form = ContactForm()
 	return render(
@@ -144,16 +143,24 @@ def contactame(request):
 	    asunto = request.POST['subject']
 
 	    dfrom = nombre + " <" +  email + ">"
-	    mensaje = dfrom + "\n" +
-      		"Asunto: " + asunto + "\n\n" +
-		mensaje
-		
-	    send_mail('Mensaje desde Edecanes en Acapulco', 
-		mensaje, 
-		'Mensajero Edecanes en Acapulco <contacto@edecanesenacapulco.com.mx>',
-		['contacto@jualjiman.com'],
-		fail_silently=False
-		)
+	"""    
+	    requests.post(
+        "https://api.mailgun.net/v2/jualjiman.com/messages",
+        auth=("api", "key-1fe898bc8e3b6d509eb0af3801efa6f7"),
+
+        data={"from": nombre + " <" + email + ">",
+              "to": ["blueberry@jualjiman.com",],
+              "subject": "Mensaje desde Edecanes en Acapulco: " + asunto,
+              "text": mensaje})
+	"""
+	                send_mail(
+                        'Mensaje desde Jualjiman.com',
+                        mensaje,
+                        'contacto@jualjiman.com',
+                        ['jualjiman@gmail.com', 'blow.it.away@live.com.mx', 'contacto@jualjiman.com','contacto@edecanesenacapulco.com.mx'],
+                        fail_silently=False
+                )
+
 	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
 	    msj.save()
 
