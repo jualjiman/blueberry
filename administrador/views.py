@@ -143,10 +143,8 @@ def contactame(request):
 	    mensaje = request.POST['message']
 	    asunto = request.POST['subject']
 
-	    dfrom = nombre + " <" +  email + ">"
-	    mensaje = dfrom + "\n" +
-      		"Asunto: " + asunto + "\n\n" +
-		mensaje
+	    dfrom = nombre + "<" +  email + ">"
+	    mensaje = dfrom + "\n" + "Asunto: " + asunto + "\n\n" + mensaje
 		
 	    send_mail('Mensaje desde Edecanes en Acapulco', 
 		mensaje, 
