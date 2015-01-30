@@ -72,22 +72,6 @@
                   scrollwheel: false
                }
                var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-               // var iconBase = 'assets/img/';
-
-               // var marker_icon = {
-               //    url: iconBase + 'map_marker.png',
-               //    size: new google.maps.Size(44,49),
-               //    origin: new google.maps.Point(0,0),
-               //    anchor: new google.maps.Point(22,49)
-               // };
-
-               // var marker = new google.maps.Marker({
-               //    position: myLatlng,
-               //    map: map,
-               //    title: 'M',
-               //    icon: marker_icon 
-               // });
             }
             google.maps.event.addDomListener(window, 'load', initialize_google_map);
          </script>

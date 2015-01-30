@@ -15,7 +15,7 @@ import requests
 # Create your views here.
 
 def home(request):
-	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, eventos"
+	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, promociones, convenciones, animación, eventos"
 	description = "Ofrecemos un servicio 100% profesional, así como actitud de servicio para representar a su empresa en forma por demás profesional. Tel. 01 (744) 254 3628"
 	sliders = Slider.objects.filter(activo = True)
 	testimoniales = Testimonial.objects.filter(activo = True)
@@ -36,7 +36,7 @@ def home(request):
 	)
 
 def nosotros(request):
-	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, eventos"	
+	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, promociones, convenciones, animación, eventos"	
         description = "Blueberry es una Agencia de Edecanes que tiene como objetivo principal contribuir a mejorar la imagen de marca y calidad de negocio de nuestros clientes."
 
 	form = ContactForm()
@@ -51,7 +51,7 @@ def nosotros(request):
 	)
 
 def servicios(request):
-	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, eventos"
+	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, promociones, convenciones, animación, eventos"
 	description = "Contrata a nuestros profesionales para: pasarelas, desfiles de moda, campañas, exposiciones, lanzamiento y reposicionamiento de productos, promociones, convenciones, etc."
 	testimoniales = Testimonial.objects.filter(activo = True)
 
@@ -68,7 +68,7 @@ def servicios(request):
 	)
 
 def eventos(request):
-	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, eventos"
+	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, promociones, convenciones, animación, eventos"
 	description = "Congresos, Convenciones, Exposiciones, Ferias, Muestreo, Encuestas, Pasarelas, Campañas de lanzamiento, Siembra de Productos, Posicionamiento de marca, Campañas BTL"
 	eventos = Evento.objects.filter(activo = True).order_by("-posicion")
 
@@ -85,7 +85,7 @@ def eventos(request):
     )
 
 def book(request):
-	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, eventos"
+	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, promociones, convenciones, animación, eventos"
 	description = "Ofrecemos un servicio 100% profesional, nuestras edecanes tienen una excelente presentación, así como actitud de servicio para representar a su empresa en forma por demás profesional."
 	testimoniales = Testimonial.objects.filter(activo = True)
 	edecanes = Edecan.objects.filter(activo = True).order_by("prioridad")[:8]
@@ -104,7 +104,7 @@ def book(request):
 	)
 
 def contacto(request):
-	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, lanzamientos, promociones, convenciones, animación, eventos"
+	keywords = u"edecanes en Acapulco, gios, pasarelas, desfiles, campañas, exposiciones, promociones, convenciones, animación, eventos"
 	description = "Nos encargarnos de la organización total de tu evento así como también de todos los servicios y equipamientos que necesites."
 
 	form = ContactForm()
