@@ -149,7 +149,7 @@ def contactame(request):
 	    send_mail('Mensaje desde Edecanes en Acapulco', 
 		mensaje, 
 		"Blueberry's mailer <mailer@edecanesenacapulco.com.mx>",
-		['contacto@jualjiman.com'],
+		['contacto@edecanesenacapulco.com.mx',],
 		fail_silently=False
 		)
 	    msj = Mensaje(nombre=dfrom, email=email,mensaje=mensaje)
