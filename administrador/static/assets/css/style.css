@@ -4674,11 +4674,11 @@ blockquote footer { font-size: 12px; }
 .widget-footer .widget p { color: #AEAEAE; }
 .widget-footer p.phone-block, .widget-footer p.email-block, .widget-footer p.address-block { color: #AEAEAE; padding-bottom: 0; margin: 20px 0 0; }
 .widget-footer .form-group { margin-bottom: 10px; }
-.widget-footer .form-control { background-color: #6B6B6B; border-color: #222222; color: #5F5F5F; }
-.widget-footer .form-control::-webkit-input-placeholder { color: #585b5f; }
-.widget-footer .form-control:-moz-placeholder { color: #585b5f; }
-.widget-footer .form-control::-moz-placeholder { color: #585b5f; }
-.widget-footer .form-control:-ms-input-placeholder { color: #585b5f; }
+.widget-footer .form-control { background-color: #6B6B6B; border-color: #222222; color: #FFFFFF; }
+.widget-footer .form-control::-webkit-input-placeholder { color: #B2B2B2; }
+.widget-footer .form-control:-moz-placeholder { color: #B2B2B2; }
+.widget-footer .form-control::-moz-placeholder { color: #B2B2B2; }
+.widget-footer .form-control:-ms-input-placeholder { color: #B2B2B2; }
 .widget-footer button.btn { border-color: #45484b !important; }
 
 /* ======================== Blog list ======================== */
