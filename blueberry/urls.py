@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^eventos/$', 'administrador.views.eventos', name='eventos'),
     url(r'^book/$', 'administrador.views.book', name='book'),
     url(r'^contacto/$', 'administrador.views.contacto', name='contacto'),
+    url(r'^contactame/$', 'administrador.views.contactame', name='contactame'),
+    url(r'^mas/$', 'administrador.views.mas', name='mas'),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
 )
 
