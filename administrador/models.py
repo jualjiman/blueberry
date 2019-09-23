@@ -1,7 +1,8 @@
  # -*- coding: utf-8 -*-
+from datetime import date, datetime
+
 from django.db import models
 from sorl.thumbnail import ImageField
-from datetime import date, datetime
 
 # Create your models here.
 
@@ -22,8 +23,8 @@ class Slider(models.Model):
 
 class Evento(models.Model):
 	imagen = ImageField(upload_to = "eventos")
-	lugar = models.CharField(max_length=60)
-	servicio = models.CharField(max_length=100)
+	lugar = models.CharField(max_length=60, blank=True, null=True)
+	servicio = models.CharField(max_length=100, blank=True, null=True)
 	posicion = models.IntegerField(default = 1)
 	activo = models.BooleanField(default=True)
 
@@ -34,8 +35,8 @@ class Edecan(models.Model):
 	class Meta:
 		verbose_name_plural = "Edecanes"
 
-	nombre = models.CharField(max_length=60)
-	descripcion = models.TextField(blank=True)
+	nombre = models.CharField(max_length=60, blank=True, null=True)
+	descripcion = models.TextField(blank=True, null=True)
 	imagen = ImageField(upload_to = "edecanes")
 	sexo = models.CharField(max_length=1, choices=categorias)
 	prioridad = models.IntegerField(default=1)
