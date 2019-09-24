@@ -122,7 +122,7 @@ def book(request):
         u'para representar a su empresa en forma por demás profesional.'
     )
     testimoniales = Testimonial.objects.filter(activo=True)
-    edecanes = Edecan.objects.filter(activo=True).order_by("prioridad")[:16]
+    edecanes = Edecan.objects.filter(activo=True).order_by("prioridad")[:20]
 
     form = ContactForm()
     return render(
@@ -163,14 +163,13 @@ def contacto(request):
 @csrf_exempt
 def mas(request):
     if request.is_ajax():
-        pagina = int(request.POST['num'])
-        pagina *= 8
+        pagina = (int(request.POST['num']) + 4) * 4
 
         otros = Edecan.objects.filter(
             activo=True
         ).order_by(
             "prioridad"
-        )[pagina:(pagina+8)]
+        )[pagina:(pagina+4)]
 
         return render(
             request,
