@@ -118,7 +118,7 @@
                         <span class="glp-arrow"></span>
                         <a href="#" class="glp-close"></a>
                         <div class="row gl-preview-container">
-                           <div class="col-sm-8">
+                           <div class="col-sm-12">
                               <figure>
                                  {% if edecan.imagen|is_portrait %}
                                     {% thumbnail edecan.imagen "500x743" crop="center" as im %}
@@ -130,19 +130,6 @@
                                     {% endthumbnail %}
                                  {% endif %}
                               </figure>
-                           </div>
-                           <div class="col-sm-4 lg-preview-descr">
-                              <h4>{{ edecan.nombre }}</h4>
-                              {{ edecan.descripcion|linebreaks }}
-                              <!-- <div class="mb-social glp-social">
-                                 <p>Share</p>
-                                 <a href="#"><i class="fa fa-twitter"></i></a>
-                                 <a href="#"><i class="fa fa-facebook"></i></a>
-                                 <a href="#"><i class="fa fa-google-plus"></i></a>
-                                 <a href="#"><i class="fa fa-instagram"></i></a>
-                                 <a href="#"><i class="fa fa-pinterest"></i></a>
-                                 <a href="#"><i class="fa fa-tumblr"></i></a>
-                              </div> -->
                            </div>
                         </div>
                      </div> <!-- gl-preview -->

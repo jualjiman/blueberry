@@ -4811,7 +4811,7 @@ ul.gallety-filters > li.gf-underline { position: absolute; bottom: 0; left: 0; w
 .gallery .gl-item.gl-preview .glp-zoom:before { content: "\54"; }
 @media (max-width: 991px) { .gallery .gl-item.gl-preview .glp-zoom { display: none; } }
 .gallery .gl-item.gl-preview .gl-preview-container { max-width: 1200px; margin: 0 auto; padding: 20px 0; }
-.gallery .gl-item.gl-preview figure { display: inline-block; width: auto; text-align: center; max-width: 100%; }
+.gallery .gl-item.gl-preview figure { display: inline-block; width: 100%; text-align: center; max-width: 100%; }
 .gallery .gl-item.gl-preview figure img { max-width: 800px; min-width: 0; }
 .gallery .gl-item.gl-preview figure img.glp-zoomed { display: block; position: fixed; z-index: 101; top: 0; right: 0; width: 100%; max-width: none; cursor: url(../img/zoom-out.gif), zoom-out; }
 .gallery .gl-item.gl-preview figure:hover > img { transform: none; -webkit-transform: none; -ms-transform: none; -moz-transform: none; -o-transform: none; }
