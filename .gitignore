@@ -1,4 +1,4 @@
 blueberry/local_settings.py
-media/
+media/*
 *.pyc
 *.sqlite3
