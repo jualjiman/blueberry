@@ -88,7 +88,7 @@
                   <li class="gl-item gl-fixed-ratio-item gl-loading" data-category="{{ edecan.sexo }}">
                      <a href="#"> 
                         <figure>
-                          {% thumbnail edecan.imagen "600x400" crop=edecan.alineacion as im %}
+                          {% thumbnail edecan.imagen "600x525" crop=edecan.alineacion as im %}
                              <img src="{{ im.url }}" alt="Edecanes/Gios">
                           {% endthumbnail %}
                         </figure>
@@ -100,11 +100,11 @@
                            <div class="col-sm-12">
                               <figure>
                                  {% if edecan.imagen|is_portrait %}
-                                    {% thumbnail edecan.imagen "500x743" crop="center" as im %}
+                                    {% thumbnail edecan.imagen "500x800" crop="center" as im %}
                                        <img src="{{ im.url }}" alt="Edecanes/Gios {{ edecan.nombre}}">
                                     {% endthumbnail %}
                                  {% else %}
-                                    {% thumbnail edecan.imagen "743x500" crop="center" as im %}
+                                    {% thumbnail edecan.imagen "800x500" crop="center" as im %}
                                        <img src="{{ im.url }}" alt="Edecanes/Gios {{ edecan.nombre}}">
                                     {% endthumbnail %}
                                  {% endif %}

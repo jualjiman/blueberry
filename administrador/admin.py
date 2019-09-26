@@ -28,6 +28,10 @@ class EdecanAdmin(admin.ModelAdmin):
 	def imagen_edecan(self,obj):
 		return '<img src="%s" />' % get_thumbnail(obj.imagen,'100x100', crop='center').url #format='PNG', quality=99
 
+	def get_queryset(self, request):
+		qs = super(self, EdecanAdmin).get_queryset(request)
+        return qs
+
 	imagen_edecan.allow_tags = True
 
 class TestimonialAdmin(admin.ModelAdmin):

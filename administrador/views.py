@@ -122,7 +122,12 @@ def book(request):
         u'para representar a su empresa en forma por demás profesional.'
     )
     testimoniales = Testimonial.objects.filter(activo=True)
-    edecanes = Edecan.objects.filter(activo=True).order_by("prioridad")[:20]
+    edecanes = Edecan.objects.filter(
+        activo=True
+    ).order_by(
+        "-prioridad", "id"
+    )
+    #)[:20]
 
     form = ContactForm()
     return render(
@@ -168,7 +173,7 @@ def mas(request):
         otros = Edecan.objects.filter(
             activo=True
         ).order_by(
-            "prioridad"
+            "-prioridad", "id"
         )[pagina:(pagina+4)]
 
         return render(
