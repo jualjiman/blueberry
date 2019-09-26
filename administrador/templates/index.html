@@ -83,35 +83,14 @@
    <div class="section st-invert no-padding">
       <section>
 
-         <ul class="gallety-filters">
-            <li class="active"><a data-filter="*" href="#">Todos</a></li>
-            <li><a data-filter="F" href="#">Ellas</a></li>
-            <li><a data-filter="M" href="#">Ellos</a></li>
-            <li class="gf-underline"></li>
-         </ul>
-
          <ul id="gallery-w-preview" class="gallery gl-cols-4 gl-fixed-items">
-            
          {% for edecan in edecanes %}
                   <li class="gl-item gl-fixed-ratio-item gl-loading" data-category="{{ edecan.sexo }}">
                      <a href="#"> 
                         <figure>
-                           {% if edecan.imagen|is_portrait %}
-                              {% thumbnail edecan.imagen "500x743" crop="center" as im %}
-                                 <img src="{{ im.url }}" alt="Edecanes/Gios {{ edecan.nombre}}">
-                              {% endthumbnail %}
-                           {% else %}
-                              {% thumbnail edecan.imagen "743x500" crop="center" as im %}
-                                 <img src="{{ im.url }}" alt="Edecanes/Gios {{ edecan.nombre}}">
-                              {% endthumbnail %}
-                           {% endif %}
-
-                           <figcaption>
-                              <div class="middle"><div class="middle-inner">
-                                 <p class="gl-item-title">{{ edecan.nombre }}</p>
-                  
-                              </div></div>
-                           </figcaption>
+                          {% thumbnail edecan.imagen "600x400" crop=edecan.alineacion as im %}
+                             <img src="{{ im.url }}" alt="Edecanes/Gios">
+                          {% endthumbnail %}
                         </figure>
                      </a>
                       <div class="gl-preview" style="diplay:none;">
