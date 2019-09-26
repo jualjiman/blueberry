@@ -23,8 +23,7 @@ class EventoAdmin(admin.ModelAdmin):
 	imagen_evento.allow_tags = True
 
 class EdecanAdmin(admin.ModelAdmin):
-	list_display = ('imagen_edecan','nombre','activo','prioridad','sexo',)
-	search_fields = ['nombre','descripcion',]
+	list_display = ('imagen_edecan','activo','prioridad','alineacion',)
 
 	def imagen_edecan(self,obj):
 		return '<img src="%s" />' % get_thumbnail(obj.imagen,'100x100', crop='center').url #format='PNG', quality=99
