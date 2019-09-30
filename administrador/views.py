@@ -20,7 +20,11 @@ def home(request):
     )
     sliders = Slider.objects.filter(activo=True)
     testimoniales = Testimonial.objects.filter(activo=True)
-    edecanes = Edecan.objects.filter(activo=True).order_by("prioridad")[:8]
+    edecanes = Edecan.objects.filter(
+        activo=True
+    ).order_by(
+        "-prioridad", "id"
+    )[:8]
 
     form = ContactForm()
     return render(
@@ -126,8 +130,7 @@ def book(request):
         activo=True
     ).order_by(
         "-prioridad", "id"
-    )
-    #)[:20]
+    )[:20]
 
     form = ContactForm()
     return render(
