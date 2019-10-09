@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
+# import sys
+# reload(sys)
+# sys.setdefaultencoding('utf-8')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -24,28 +24,23 @@ sys.setdefaultencoding('utf-8')
 SECRET_KEY = 'yn=oy%(3+5@v*3i%*is8995$t1nobfcc#&erx@d3+=g1!uc_nv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-debugsm = False
+debugsm = True
 DEBUG = debugsm
 TEMPLATE_DEBUG = debugsm
+THUMBNAIL_DEBUG = False
 
 ALLOWED_HOSTS = ['.edecanesenacapulco.com.mx','.edecanesenacapulco.com.mx.']
-#ALLOWED_HOSTS = ['.bb.jualjiman.com','.bb.jualjiman.com.']
-#ALLOWED_HOSTS = []
-
-# Application definition
+# ALLOWED_HOSTS = ['.bb.jualjiman.com','.bb.jualjiman.com.']
+# ALLOWED_HOSTS = ['*']
 
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+TEMPLATE_CONTEXT_PROCESSORS = TCP + [
     'django.core.context_processors.request',
-)
-
-#GRAPPELLI_ADMIN_TITLE = "Blueberry | Agencia de edecanes"
+]
 
 INSTALLED_APPS = (
-    'django_admin_bootstrapped.bootstrap3',
-    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,7 +50,6 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'administrador',
     'sorl.thumbnail',
-    'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -72,23 +66,18 @@ ROOT_URLCONF = 'blueberry.urls'
 WSGI_APPLICATION = 'blueberry.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-"""
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 DATABASES = {
     'default': {
         'NAME': 'blueberry',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'wadmin',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'USER': 'blueberry',
         'PASSWORD': '081510979s'
     }
   }

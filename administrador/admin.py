@@ -10,17 +10,19 @@ class SliderAdmin(admin.ModelAdmin):
     search_fields = ['titulo', 'descripcion', ]
 
     def imagen_slider(self, obj):
-        return '<img src="%s" />' % get_thumbnail(obj.imagen, '100x60', crop='center').url  # format='PNG', quality=99
+        return '<img src="%s" />' % get_thumbnail(obj.imagen, '100x60', crop='center').url
 
     imagen_slider.allow_tags = True
 
 
 class EventoAdmin(admin.ModelAdmin):
-    list_display = ('imagen_evento', 'lugar', 'servicio', 'posicion', 'activo', )
+    list_display = (
+        'imagen_evento', 'lugar', 'servicio', 'posicion', 'activo',
+    )
     search_fields = ['lugar', 'servicio', ]
 
     def imagen_evento(self, obj):
-        return '<img src="%s" />' % get_thumbnail(obj.imagen, '100x60', crop='center').url  # format='PNG', quality=99
+        return '<img src="%s" />' % get_thumbnail(obj.imagen, '100x60', crop='center').url
 
     imagen_evento.allow_tags = True
 
@@ -29,10 +31,10 @@ class EdecanAdmin(admin.ModelAdmin):
     list_display = ('imagen_edecan', 'activo', 'prioridad', 'alineacion',)
 
     def imagen_edecan(self, obj):
-        return '<img src="%s" />' % get_thumbnail(obj.imagen, '100x100', crop='center').url  # format='PNG', quality=99
+        return '<img src="%s" />' % get_thumbnail(obj.imagen, '100x100', crop='center').url
 
     def get_queryset(self, request):
-        qs = super(self, EdecanAdmin).get_queryset(request)
+        qs = super().get_queryset(request)
         return qs
 
     imagen_edecan.allow_tags = True
