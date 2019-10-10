@@ -29,9 +29,7 @@ DEBUG = debugsm
 TEMPLATE_DEBUG = debugsm
 THUMBNAIL_DEBUG = False
 
-ALLOWED_HOSTS = ['.edecanesenacapulco.com.mx','.edecanesenacapulco.com.mx.']
-# ALLOWED_HOSTS = ['.bb.jualjiman.com','.bb.jualjiman.com.']
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
@@ -65,23 +63,6 @@ ROOT_URLCONF = 'blueberry.urls'
 
 WSGI_APPLICATION = 'blueberry.wsgi.application'
 
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'NAME': 'blueberry',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'USER': 'blueberry',
-        'PASSWORD': '081510979s'
-    }
-  }
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
@@ -112,3 +93,8 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 MEDIA_ROOT = os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 MEDIA_URL = '/media/'
+
+try:
+    from .local_settings import *  # noqa
+except:
+    pass
