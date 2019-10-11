@@ -17,12 +17,18 @@ class SliderAdmin(admin.ModelAdmin):
 
 class EventoAdmin(admin.ModelAdmin):
     list_display = (
-        'imagen_evento', 'lugar', 'servicio', 'posicion', 'activo',
+        'imagen_evento',
+        'posicion',
+        'activo'
     )
     search_fields = ['lugar', 'servicio', ]
 
     def imagen_evento(self, obj):
-        return '<img src="%s" />' % get_thumbnail(obj.imagen, '100x60', crop='center').url
+        return '<img src="%s" />' % get_thumbnail(
+            obj.imagen,
+            '100x100',
+            crop='center'
+        ).url
 
     imagen_evento.allow_tags = True
 
@@ -31,11 +37,15 @@ class EdecanAdmin(admin.ModelAdmin):
     list_display = ('imagen_edecan', 'activo', 'prioridad', 'alineacion',)
 
     def imagen_edecan(self, obj):
-        return '<img src="%s" />' % get_thumbnail(obj.imagen, '100x100', crop='center').url
+        return '<img src="%s" />' % get_thumbnail(
+            obj.imagen,
+            '100x100',
+            crop=obj.alineacion
+        ).url
 
     def get_queryset(self, request):
-        qs = super().get_queryset(request)
-        return qs
+        qs = super(EdecanAdmin, self).get_queryset(request)
+        return qs.order_by("-activo", "-prioridad", "id")
 
     imagen_edecan.allow_tags = True
 
