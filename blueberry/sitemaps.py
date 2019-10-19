@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.contrib.sitemaps import Sitemap
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 
 class StaticViewSitemap(Sitemap):
@@ -14,6 +14,7 @@ class StaticViewSitemap(Sitemap):
 
 class OtherStaticViewSitemap(StaticViewSitemap):
     priority = 0.8
+
     def items(self):
         return [
             'nosotros',
@@ -26,5 +27,6 @@ class OtherStaticViewSitemap(StaticViewSitemap):
 
 class HomeStaticViewSitemap(StaticViewSitemap):
     priority = 1.0
+
     def items(self):
         return ['home']

@@ -1,30 +1,40 @@
 from django.conf import settings
-from django.conf.urls import include, patterns, url
+from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.sitemaps import views as sitemaps_views
+from django.views import static
 
 from blueberry.sitemaps import HomeStaticViewSitemap, OtherStaticViewSitemap
+from administrador import views
 
 admin.autodiscover()
 
-sitemaps = {
-    'home': HomeStaticViewSitemap,
-    'other': OtherStaticViewSitemap
-}
+sitemaps_options = {"home": HomeStaticViewSitemap, "other": OtherStaticViewSitemap}
 
-urlpatterns = patterns('',
-    url(r'^admin/', include(admin.site.urls)),
-
-    url(r'^$', 'administrador.views.home', name='home'),
-    url(r'^nosotros/$', 'administrador.views.nosotros', name='nosotros'),
-    url(r'^servicios/$', 'administrador.views.servicios', name='servicios'),
-    url(r'^eventos/$', 'administrador.views.eventos', name='eventos'),
-    url(r'^book/$', 'administrador.views.book', name='book'),
-    url(r'^contacto/$', 'administrador.views.contacto', name='contacto'),
-    url(r'^contactame/$', 'administrador.views.contactame', name='contactame'),
-    url(r'^mas/$', 'administrador.views.mas', name='mas'),
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
-)
-
-urlpatterns += patterns('',url(r'^/webapps/fortalezac/fortaleza/media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,}),)
-urlpatterns += patterns('',(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT, 'show_indexes':True}),)
-urlpatterns += patterns('',(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes':True}),)
+urlpatterns = [
+    url(r"^admin/", admin.site.urls),
+    url(r"^$", views.home, name="home"),
+    url(r"^nosotros/$", views.nosotros, name="nosotros"),
+    url(r"^servicios/$", views.servicios, name="servicios"),
+    url(r"^eventos/$", views.eventos, name="eventos"),
+    url(r"^book/$", views.book, name="book"),
+    url(r"^contacto/$", views.contacto, name="contacto"),
+    url(r"^contactame/$", views.contactame, name="contactame"),
+    url(r"^mas/$", views.mas, name="mas"),
+    url(r"^sitemap\.xml$", sitemaps_views.sitemap, {"sitemaps": sitemaps_options}),
+    url(
+        r"^webapps/fortalezac/fortaleza/media/(?P<path>.*)$",
+        static.serve,
+        {"document_root": settings.MEDIA_ROOT},
+    ),
+    url(
+        r"^static/(?P<path>.*)$",
+        static.serve,
+        {"document_root": settings.STATIC_ROOT, "show_indexes": True},
+    ),
+    url(
+        r"^media/(?P<path>.*)$",
+        static.serve,
+        {"document_root": settings.MEDIA_ROOT, "show_indexes": True},
+    ),
+]
