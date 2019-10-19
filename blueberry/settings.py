@@ -25,8 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = "yn=oy%(3+5@v*3i%*is8995$t1nobfcc#&erx@d3+=g1!uc_nv"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-debugsm = True
-DEBUG = debugsm
+DEBUG = False
 THUMBNAIL_DEBUG = False
 
 ALLOWED_HOSTS = []
@@ -39,11 +38,11 @@ TEMPLATES = [
         "OPTIONS": {
             "context_processors": {
                 "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
                 "django.template.context_processors.i18n",
                 "django.template.context_processors.request",
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
-                "django.contrib.messages.context_processors.messages",
             }
         },
     }
@@ -53,23 +52,23 @@ INSTALLED_APPS = (
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.sessions",
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     "administrador",
     "sorl.thumbnail",
 )
 
-MIDDLEWARE = (
+MIDDLEWARE = [
     "django.middleware.common.CommonMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware"
-
-)
+    "django.middleware.locale.LocaleMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+]
 
 ROOT_URLCONF = "blueberry.urls"
 
@@ -89,13 +88,6 @@ USE_L10N = True
 USE_TZ = True
 
 DEFAULT_CHARSET = "utf-8"
-
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
-}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
