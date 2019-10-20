@@ -2,17 +2,18 @@
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from .models import *
-from .forms import *
+from .models import Slider, Testimonial, Edecan, Evento, Mensaje, Email
+from .forms import ContactForm
 from django.core.mail import send_mail
-from django.views.decorators.csrf import csrf_exempt
+
+
+keywords = (
+    u'Edecanes en Acapulco, gios, pasarelas, desfiles, campañas, '
+    u'exposiciones, promociones, convenciones, animación, eventos'
+)
 
 
 def home(request):
-    keywords = (
-        u'edecanes en Acapulco, gios, pasarelas, desfiles, campañas, '
-        u'exposiciones, promociones, convenciones, animación, eventos'
-    )
     description = (
         u'Servicio 100% profesional, Amplia y Exitosa '
         u'experiencia: Congresos, Convenciones, Exposiciones, Campañas '
@@ -42,10 +43,6 @@ def home(request):
 
 
 def nosotros(request):
-    keywords = (
-        u'edecanes en Acapulco, gios, pasarelas, desfiles, campañas, '
-        u'exposiciones, promociones, convenciones, animación, eventos'
-    )
     description = (
         u'Blueberry es una Agencia de Edecanes que tiene como objetivo '
         u'principal contribuir a mejorar la imagen de marca y calidad de '
@@ -65,10 +62,6 @@ def nosotros(request):
 
 
 def servicios(request):
-    keywords = (
-        u'edecanes en Acapulco, gios, pasarelas, desfiles, campañas, '
-        u'exposiciones, promociones, convenciones, animación, eventos'
-    )
     description = (
         u'Contrata a nuestros profesionales para: pasarelas, desfiles '
         u'de moda, campañas, exposiciones, lanzamiento y '
@@ -90,11 +83,6 @@ def servicios(request):
 
 
 def eventos(request):
-    keywords = (
-        u'edecanes en Acapulco, gios, pasarelas, desfiles, '
-        u'campañas, exposiciones, promociones, convenciones, animación, '
-        u'eventos'
-    )
     description = (
         u'Congresos, Convenciones, Exposiciones, Ferias, Muestreo, '
         u'Encuestas, Pasarelas, Campañas de lanzamiento, Siembra de '
@@ -116,10 +104,6 @@ def eventos(request):
 
 
 def book(request):
-    keywords = (
-        u'edecanes en Acapulco, gios, pasarelas, desfiles, campañas, '
-        u'exposiciones, promociones, convenciones, animación, eventos'
-    )
     description = (
         u'Ofrecemos un servicio 100% profesional, nuestras edecanes '
         u'tienen una excelente presentación, así como actitud de servicio '
@@ -147,10 +131,6 @@ def book(request):
 
 
 def contacto(request):
-    keywords = (
-        u'edecanes en Acapulco, gios, pasarelas, desfiles, campañas, '
-        u'exposiciones, promociones, convenciones, animación, eventos'
-    )
     description = (
         u'Nos encargarnos de la organización total de tu evento así '
         u'como también de todos los servicios y equipamientos que necesites.'
