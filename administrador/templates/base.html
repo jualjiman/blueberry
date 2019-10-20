@@ -1,3 +1,4 @@
+{% load compress %}
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -8,17 +9,18 @@
 <head>
    <meta charset="utf-8">
    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-
    <title>Edecanes y Modelos en Acapulco, Agencia Blueberry</title>
    <meta name="description" content="{{ description }}">
    <meta name="keywords" content="{{ keywords }}">
    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+   <link rel="shortcut icon" href="{% static "assets/img/favicon.png" %}">
    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+
+   {% compress css %}
    <link rel="stylesheet" href="{% static "assets/css/style.css" %}">
    <link rel="stylesheet" href="{% static "assets/plugins/layerslider/css/layerslider.css" %}">
-   <link rel="shortcut icon" href="{% static "assets/img/favicon.png" %}">
-   <script src="{% static "assets/js/vendor/modernizr-2.6.2.min.js" %}"></script>
+   {% endcompress %}
 </head>
 <body>
    <!--[if lt IE 9]>
@@ -58,7 +60,7 @@
                </div> <!-- container -->
             </header>
          </div> <!-- header -->
-         
+
          {% block mainContent %}{% endblock %}
 
          <div id="footer" class="widget-footer">
@@ -74,7 +76,7 @@
                                  <label class="sr-only" for="input_name">Nombre *</label>
                                  {{ form.name }}
                               </div>
-                              
+
                               <div class="form-group">
                                  <label class="sr-only" for="input_email">Email *</label>
                                  {{ form.email.errors }}
@@ -116,7 +118,7 @@
                            </div>
                         </div> <!-- widget -->
                      </div>
-                     
+
                      <div class="col-lg-4 col-md-6">
                         <div class="widget">
                            <h3 class="wg-title">Sobre nosotros</h3>
@@ -128,7 +130,7 @@
                            </p>
                         </div> <!-- widget -->
                      </div>
-                     
+
                   </div>
                </div>
                <div class="ft-copyright">
@@ -143,6 +145,8 @@
 
    </div> <!-- wrapper -->
 
+   {% compress js file base %}
+   <script src="{% static "assets/js/vendor/modernizr-2.6.2.min.js" %}"></script>
    <script src="{% static "assets/js/vendor/jquery-1.10.2.min.js" %}"></script>
    <script src="{% static "assets/js/vendor/jquery-ui-1.10.4.custom.min.js" %}"></script>
    <script src="{% static "assets/js/vendor/jquery.touchSwipe.min.js" %}"></script>
@@ -183,5 +187,6 @@
      ga('create', 'UA-53648845-5', 'auto');
      ga('send', 'pageview');
    </script>
+   {% endcompress %}
 </body>
 </html>

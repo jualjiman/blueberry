@@ -1,11 +1,2 @@
-bootstrap-admin==0.4.3
-certifi==2019.9.11
-chardet==3.0.4
-Django==2.2.6
-gunicorn==19.9.0
-idna==2.8
-Pillow==6.2.0
-requests==2.22.0
-sorl-thumbnail==12.5.0
-urllib3==1.25.6
+-r dev-requirements.txt
 psycopg2==2.8.3

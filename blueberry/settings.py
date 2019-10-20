@@ -58,6 +58,7 @@ INSTALLED_APPS = (
     "django.contrib.sitemaps",
     "administrador",
     "sorl.thumbnail",
+    "compressor",
 )
 
 MIDDLEWARE = [
@@ -98,6 +99,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "administrador/static")
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
     "django.contrib.staticfiles.finders.FileSystemFinder",
+    "compressor.finders.CompressorFinder",
 )
 
 ADMIN_MEDIA_PREFIX = "/static/admin/"

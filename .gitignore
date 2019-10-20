@@ -3,3 +3,4 @@ administrador/static/*
 media/*
 *.pyc
 *.sqlite3
+*.swp
